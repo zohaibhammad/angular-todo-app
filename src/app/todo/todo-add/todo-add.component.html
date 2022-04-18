@@ -1,0 +1,38 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-4">
+      <div class="mb-3 form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="category"
+          id="category"
+          placeholder="Category"
+          formControlName="category"
+        />
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="mb-3 form-group">
+        <input
+          type="test"
+          class="form-control"
+          id="task"
+          name="task"
+          placeholder="Task"
+          formControlName="task"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success"
+    [disabled]="!this.todoForm.valid"
+  >
+    {{ editMode ? "Update" : "Add" }}
+  </button>
+  <button type="reset" class="btn btn-primary" (click)="onClear()">
+    Clear
+  </button>
+</form>

@@ -1,0 +1,23 @@
+<ul class="list-group list-group-flush">
+  <li
+    style="cursor: pointer"
+    class="list-group-item"
+    *ngFor="let item of list; let i = index"
+    [ngClass]="{ completed: item.status }"
+    (click)="onComplete(i)"
+    (dblclick)="onDblClick(i)"
+    #myLi
+  >
+    <h3>
+      {{ item.category
+      }}<button
+        type="button"
+        class="btn-close float-end"
+        aria-label="Close"
+        (click)="onDelete(i)"
+        [disabled]="editMode"
+      ></button>
+    </h3>
+    {{ item.task }}
+  </li>
+</ul>
